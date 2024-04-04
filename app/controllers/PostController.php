@@ -42,23 +42,17 @@ class PostController
 
     public function getPosts($id) {
         header("Content-Type: application/json");
+        $postsModel = new Posts();
         if ($id) {
             //TODO 5-c i: get a post data by id
-            $post = Post::find($id);
-            if ($post) {
-                echo json_encode($post);
-            } else {
-                http_response_code(404);
-            }
+           $posts = $postsModel->getPostById($id);
+
         } else {
             //TODO 5-a: get all posts
-            $posts = Post::all();
-            if ($posts) {
-                echo json_encode($posts);
-            } else {
-                http_response_code(404);
-            }
+            $posts = $postsModel->getAllPosts();
+ 
         }
+        
 
         exit();
     }
