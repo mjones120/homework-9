@@ -44,8 +44,20 @@ class PostController
         header("Content-Type: application/json");
         if ($id) {
             //TODO 5-c i: get a post data by id
+            $post = Post::find($id);
+            if ($post) {
+                echo json_encode($post);
+            } else {
+                http_response_code(404);
+            }
         } else {
             //TODO 5-a: get all posts
+            $posts = Post::all();
+            if ($posts) {
+                echo json_encode($posts);
+            } else {
+                http_response_code(404);
+            }
         }
 
         exit();
@@ -59,7 +71,13 @@ class PostController
         $postData = $this->validatePost($inputData);
 
         //TODO 5-b: save a post
-
+        $posts = new Post();
+        $posts->savePost(
+            [
+                'title' => $postData['title'],
+                'description' => $postData['description'],
+            ]
+            );
         http_response_code(200);
         echo json_encode([
             'success' => true
@@ -83,6 +101,18 @@ class PostController
         $postData = $this->validatePost($inputData);
 
         //TODO 5-c: update a post
+        $posts = new Post();
+        $posts->updatePost(
+            [
+                'id' => $id,
+                'title' => $postData['title'],
+                'description' => $postData['description'],
+            ]
+            );
+        http_response_code(200);
+        echo json_encode([
+           'success' => true
+        ]);
 
         http_response_code(200);
         echo json_encode([
