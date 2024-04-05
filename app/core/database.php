@@ -7,7 +7,6 @@ use PDOException;
 
 trait Database
 {
-
     private function connect()
     {
         $options = [
