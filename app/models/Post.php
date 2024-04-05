@@ -8,27 +8,27 @@ class Post
     public function getAllPosts()
     {
         $query = ("SELECT * FROM posts");
-        return $this->fetchAll($query);
+        return $query;
     }
     public function getPostById($id)
     {
         $query =("SELECT * FROM posts WHERE id = :id");
-        return $this->queryWithParams($query, ["id"=> $id]);
+        return $query;
     }
     public function savePost($data)
     {
         $query = "INSERT INTO posts (title, description) VALUES (:title, :description)";
-        return $this->queryWithParams($query, $data);
+        return $query;
     }
     public function updatePost($data)
     {
         $query = "UPDATE posts SET title = :title, description = :description WHERE id = :id";
-        return $this->queryWithParams($query, $data);
+        return $query;
     }
     public function deletePost($id)
     {
         $query = "DELETE FROM posts WHERE id = :id";
-        return $this->queryWithParams($query, ["id" => $id]);
+        return $query;
     }
 
 
