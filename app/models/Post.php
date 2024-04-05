@@ -8,7 +8,8 @@ class Post
     //$db = new PDOdb('localhost', 'root','root','homework_9');
     public function getAllPosts()
     {
-        $query=("SELECT * FROM posts WHERE  id")
+        $query=("SELECT * FROM posts WHERE  id");
+        return $query;
     }
     public function getPostById($id)
     {
