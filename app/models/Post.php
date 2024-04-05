@@ -50,8 +50,5 @@ class Post
             'description' => $id['description'],
         ];
         $query->execute($data);
-       
     }
-
-
 }
