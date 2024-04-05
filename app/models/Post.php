@@ -5,10 +5,10 @@ namespace app\models;
 class Post
 {
     //todo make methods here
+    $db = new PDOdb('host', 'username','password','homework_9');
     public function getAllPosts()
     {
-        $query = ("SELECT * FROM posts");
-        return $query;
+        
     }
     public function getPostById($id)
     {

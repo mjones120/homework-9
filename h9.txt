@@ -3,3 +3,4 @@ SQL is structures query language that is used for database creation and manipula
 Relational databases are a type of database that uses a structure to identify and access data in relation to other pieces of data within the database.
 
 4. What is a PDO in PHP? Why do we need to use prepared statements?
+A PDO is a framework used for accessing databases in php. We use prepared statements to simplify database such as executing queries or handling errors.
