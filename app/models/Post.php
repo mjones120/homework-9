@@ -15,12 +15,12 @@ class Post
         $query =("SELECT * FROM posts WHERE id = :id");
         return $query;
     }
-    public function savePost($data)
+    public function savePost($id)
     {
         $query = "INSERT INTO posts (title, description) VALUES (:title, :description)";
         return $query;
     }
-    public function updatePost($data)
+    public function updatePost($id)
     {
         $query = "UPDATE posts SET title = :title, description = :description WHERE id = :id";
         return $query;
