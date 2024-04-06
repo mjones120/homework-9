@@ -1,54 +1,38 @@
 <?php
 
 namespace app\models;
+use app\core\Database;
 
 class Post
 {
     //todo make methods here
+
     public function getAllPosts()
     {
-        $db = \Config\Database::connect();
-        $query = $db->query("SELECT * FROM posts");
-        return $query->getResultArray();
+        $query="select * from posts where id = :id";
+        return $this->fetchAll($query);
 
     }
     public function getPostById($id)
     {
-        $db = \Config\Database::connect();
-        $query = $db->query("SELECT * FROM posts WHERE id = $id");
-        return $query->getResultArray();
+        $query="select * from posts where id = :id";
+        return $this->queryWithParams($query, ["id"=> $id]);
         
     }
     public function savePost($id)
     {
-        $db = \Config\Database::connect();
-        $query = $db->query("INSERT INTO posts (title, description) VALUES (:title, :description)");
-        $data = [
-            'title' => $id['title'],
-            'description' => $id['description'],
-        ];
-        $query->execute($data);
-       
+        $query = "insert into posts (title,description) (:title, :description);";
+        $this->queryWithParams($query, $id);    
     }
     public function updatePost($id)
     {
-    $db = \Config\Database::connect();
-    $query = $db->query("UPDATE posts SET title = :title, description = :description WHERE id = $id");
-    $data = [
-        'title' => $id['title'],
-        'description' => $id['description'],
-    ];
-    $query->execute($data);
-       
+        $query = "update posts set title = :title, description = :description where id = :id";
+        return $this->queryWithParams($query, $id); 
     }
     public function deletePost($id)
     {   
-        $db = \Config\Database::connect();
-        $query = $db->query("DELETE FROM posts WHERE id = $id");
-        $data = [
-            'title' => $id['title'],
-            'description' => $id['description'],
-        ];
-        $query->execute($data);
+        $query = "delete from posts where id = :id";
+        return $this->queryWithParams($query, $id);
     }
 }
+    
