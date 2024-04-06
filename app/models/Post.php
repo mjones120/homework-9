@@ -19,20 +19,20 @@ class Post
         return $this->queryWithParams($query, ["id"=> $id]);
         
     }
-    public function savePost()
+    public function savePost($inputData)
     {
         $query = "insert into posts (title,description) (:title, :description);";
-        $this->queryWithParams($query);    
+        $this->queryWithParams($query, $inputData);    
     }
-    public function updatePost($id)
+    public function updatePost($inputData)
     {
         $query = "update posts set title = :title, description = :description where id = :id";
-        return $this->queryWithParams($query, $id); 
+        return $this->queryWithParams($query, $inputData); 
     }
-    public function deletePost($id)
+    public function deletePost($inputData)
     {   
         $query = "delete from posts where id = :id";
-        return $this->queryWithParams($query, $id);
+        return $this->queryWithParams($query, $inputData);
     }
 }
     
