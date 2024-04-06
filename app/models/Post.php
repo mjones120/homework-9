@@ -19,10 +19,10 @@ class Post
         return $this->queryWithParams($query, ["id"=> $id]);
         
     }
-    public function savePost($id)
+    public function savePost()
     {
         $query = "insert into posts (title,description) (:title, :description);";
-        $this->queryWithParams($query, $id);    
+        $this->queryWithParams($query);    
     }
     public function updatePost($id)
     {
