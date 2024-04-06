@@ -38,7 +38,7 @@ trait Database
         return $statementObject->fetchAll();
     }
 
-    //parms, will execute and return results
+    //params, will execute and return results
     public function queryWithParams($query, $data, $className = null) {
         $connectedPDO = $this->connect();
         $statementObject = $connectedPDO->prepare($query);
