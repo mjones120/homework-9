@@ -41,8 +41,9 @@ class PostController
     }
 
     public function getPosts($id) {
-        header("Content-Type: application/json");
         $postsModel = new Post();
+        header("Content-Type: application/json");
+    
         if ($id) {
             //TODO 5-c i: get a post data by id
            $posts = $postsModel->getPostById($id);
