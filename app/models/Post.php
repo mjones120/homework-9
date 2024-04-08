@@ -9,7 +9,7 @@ class Post
 
     public function getAllPosts()
     {
-        $query="select * from posts where id = :id";
+        $query="select * from posts";
         return $this->fetchAll($query);
 
     }
