@@ -6,6 +6,7 @@ use app\core\Database;
 class Post
 {
     //todo make methods here
+    use Database;
 
     public function getAllPosts()
     {
