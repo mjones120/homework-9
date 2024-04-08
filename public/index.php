@@ -1,7 +1,7 @@
 <?php
+require_once "../app/core/Database.php";
 require_once "../app/models/Post.php";
 require_once "../app/controllers/PostController.php";
-require_once "../app/core/Database.php";
 
 //set our env variables
 $env = parse_ini_file('../.env');
