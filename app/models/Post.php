@@ -22,7 +22,7 @@ class Post
     public function savePost($inputData)
     {
         $query = "insert into posts (title,description) (:title, :description);";
-        $this->queryWithParams($query, $inputData);    
+        return $this->queryWithParams($query, $inputData);    
     }
     public function updatePost($inputData)
     {
